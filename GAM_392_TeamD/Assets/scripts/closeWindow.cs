@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class e2e2 : MonoBehaviour
+public class closeWindow : MonoBehaviour
 {
 
     public GameObject ad;
