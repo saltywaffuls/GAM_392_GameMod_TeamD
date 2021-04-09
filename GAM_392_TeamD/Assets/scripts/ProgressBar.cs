@@ -30,6 +30,9 @@ public class ProgressBar : MonoBehaviour
         if (slider.value < targetProgress)
             slider.value += fillSpeed * Time.deltaTime;
 
+        if (slider.value > targetProgress)
+            slider.value -= fillSpeed * Time.deltaTime;
+
     }
 
     //add progress to the bar
@@ -37,7 +40,12 @@ public class ProgressBar : MonoBehaviour
 
         targetProgress = slider.value + newProgress;
         }
-    
+
+    public void IncrementDeProgress(float newProgress)
+    {
+
+        targetProgress = slider.value - newProgress;
+    }
 
 }
 

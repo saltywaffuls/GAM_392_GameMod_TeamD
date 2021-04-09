@@ -8,8 +8,8 @@ public class PopUPControler : MonoBehaviour
 
     
     public GameObject prefab;
-
-    
+    public GameObject Pbar;
+    public float fill;
 
     
     public float speed;
@@ -20,6 +20,7 @@ public class PopUPControler : MonoBehaviour
     {
         
          prefab.SetActive(false);
+
 
         timeRunning = true;
     }
@@ -42,6 +43,7 @@ public class PopUPControler : MonoBehaviour
                 prefab.SetActive(true);
                 speed = 0;
                 timeRunning = false;
+                Pbar.GetComponent<ProgressBar>().IncrementProgress(fill);
 
 
             }
