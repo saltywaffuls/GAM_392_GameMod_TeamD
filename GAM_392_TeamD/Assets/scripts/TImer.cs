@@ -6,25 +6,34 @@ using UnityEngine.UI;
 public class TImer : MonoBehaviour
 {
 
-    float timer = 0;
-    public Text myText = null;
+    float Currenttime = 0f;
+    public float addTime = 1;
+    public float StartTime = 15f;
+    public GameObject victoryScreen;
+
+    [SerializeField] Text timerText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Currenttime = StartTime;
+        victoryScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        timer += Time.deltaTime;
-        changeText();
+        Currenttime -= addTime * Time.deltaTime;
+        timerText.text = Currenttime.ToString("0");
+
+        if ( Currenttime <= 0)
+        {
+            victoryScreen.SetActive(true);
+        }
+
     }
 
-    public void changeText()
-    {
-        myText.text = "time" + timer;
-    }
+    
+
 }
