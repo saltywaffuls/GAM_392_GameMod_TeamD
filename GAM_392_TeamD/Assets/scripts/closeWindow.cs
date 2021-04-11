@@ -7,7 +7,7 @@ public class closeWindow : MonoBehaviour
 
     public GameObject ad;
     public GameObject Pbar;
-    public float Unfill;
+    public float UnfillPbar;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,6 @@ public class closeWindow : MonoBehaviour
 
     public void reduceProgressBar()
     {
-        Pbar.GetComponent<ProgressBar>().IncrementDeProgress(Unfill);
+        Pbar.GetComponent<ProgressBar>().IncrementDeProgress(UnfillPbar);
     }
 }

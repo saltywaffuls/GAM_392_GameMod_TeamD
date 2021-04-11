@@ -10,6 +10,7 @@ public class ProgressBar : MonoBehaviour
 
     public float fillSpeed = 0.5f;
     private float targetProgress = 0;
+    public GameObject endScreen;
 
     private void Awake()
     {
@@ -20,7 +21,8 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        endScreen.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -33,6 +35,13 @@ public class ProgressBar : MonoBehaviour
         if (slider.value > targetProgress)
             slider.value -= fillSpeed * Time.deltaTime;
 
+        if(targetProgress >= 0.9)
+        {
+            endScreen.SetActive(true);
+
+            Debug.Log("game over");
+        }
+
     }
 
     //add progress to the bar
@@ -41,6 +50,7 @@ public class ProgressBar : MonoBehaviour
         targetProgress = slider.value + newProgress;
         }
 
+    //sub progress to the bar
     public void IncrementDeProgress(float newProgress)
     {
 
