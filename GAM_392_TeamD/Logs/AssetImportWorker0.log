@@ -104,3 +104,34 @@ Received Import Request.
 Start importing Assets/art/Desktop BG.png using Guid(672cc7c660ac27f4983c1811dd4918a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6553703f123e4ccafb7ec2d73489516a') in 0.079937 seconds
   Import took 0.083322 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001242 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.748 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1801 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.1 MB.
+System memory in use after: 88.2 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 2271.
+Total: 2.216100 ms (FindLiveObjects: 0.233000 ms CreateObjectMapping: 0.041900 ms MarkObjects: 1.909700 ms  DeleteObjects: 0.030000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2048.508933 seconds.
+  path: Assets/art/Close_Window.png
+  artifactKey: Guid(0f2d8fe2802ab6049b5b021d4e3805ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/art/Close_Window.png using Guid(0f2d8fe2802ab6049b5b021d4e3805ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec1183d2b360211d21fb38e703254394') in 0.050255 seconds
+  Import took 0.054968 seconds .
+
