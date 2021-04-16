@@ -1,58 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopUPControler : MonoBehaviour
 {
 
 
-    
-    public GameObject prefab;
+    public Transform[] adPoints;
+    public GameObject [] ad;
     public GameObject Pbar;
     public float fillPbar;
 
-    
-    public float speed;
-    public bool timeRunning;
+
+
+    int randomAdpoint, RandomAd;
+    public static bool adsON;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-         prefab.SetActive(false);
-
-
-        timeRunning = true;
+        adsON = true;
+        InvokeRepeating("RandomPopUpAd", 0f, 1f);
+  
+       
     }
 
-  
 
-    // Update is called once per frame
-    void Update()
+   
+      void RandomPopUpAd()
     {
 
-        if (timeRunning)
+
+        if (adsON)
         {
-            if (speed >= 0)
-            {
-                speed -= Time.deltaTime;
-            }
-            else
-            {
-
-                prefab.SetActive(true);
-                speed = 0;
-                timeRunning = false;
-                Pbar.GetComponent<ProgressBar>().IncrementProgress(fillPbar);
-
-
-            }
+            Debug.Log("random 1");
+            randomAdpoint = Random.Range(0, adPoints.Length);
+            RandomAd = Random.Range(0, ad.Length);
+            Instantiate(ad[RandomAd], adPoints[randomAdpoint].position, Quaternion.identity);
+            Pbar.GetComponent<ProgressBar>().IncrementProgress(fillPbar);
         }
-
-       
-      
-
+        
     }
-
+   
+    
    
 }

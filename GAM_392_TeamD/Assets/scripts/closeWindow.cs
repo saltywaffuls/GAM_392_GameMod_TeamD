@@ -5,27 +5,23 @@ using UnityEngine;
 public class closeWindow : MonoBehaviour
 {
 
-    public GameObject ad;
+    public Texture btnTexture;
     public GameObject Pbar;
     public float UnfillPbar;
 
-    // Start is called before the first frame update
-    void Start()
+    
+    void OnGUI()
     {
+        if (GUI.Button(new Rect(10, 10, 50, 50), btnTexture))
+            Debug.Log("close ad");
         
+        if (GUI.Button(new Rect(10, 10, 50, 50), "X"))
+            Debug.Log("close ad");
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            reduceProgressBar();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void close()
-    {
-        ad.SetActive(false);
-       
-    }
+    
 
     public void reduceProgressBar()
     {
