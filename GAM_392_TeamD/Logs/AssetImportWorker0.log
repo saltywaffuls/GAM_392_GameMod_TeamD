@@ -1459,3 +1459,68 @@ System memory in use after: 89.8 MB.
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2365.
 Total: 1.745000 ms (FindLiveObjects: 0.185200 ms CreateObjectMapping: 0.067800 ms MarkObjects: 1.395700 ms  DeleteObjects: 0.095200 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000903 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.746 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1786 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.9 MB.
+System memory in use after: 89.9 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2368.
+Total: 1.875700 ms (FindLiveObjects: 0.224400 ms CreateObjectMapping: 0.067800 ms MarkObjects: 1.488000 ms  DeleteObjects: 0.094500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2404.511458 seconds.
+  path: Assets/Prefabs/Progress Bar.prefab
+  artifactKey: Guid(7945c446a3f8d9d41b8164d930b2417d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Progress Bar.prefab using Guid(7945c446a3f8d9d41b8164d930b2417d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5aa31d25b7a82f14b5cb87e57945dfe') in 0.034338 seconds
+  Import took 0.037867 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.624677 seconds.
+  path: Assets/Prefabs/Square.prefab
+  artifactKey: Guid(7b0329a9156773e488d29512f1900c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Square.prefab using Guid(7b0329a9156773e488d29512f1900c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a06d9157d386c034cdcd3bef3577ccc1') in 0.048986 seconds
+  Import took 0.052338 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000923 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.709 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1786 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.0 MB.
+System memory in use after: 90.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2372.
+Total: 2.012900 ms (FindLiveObjects: 0.179000 ms CreateObjectMapping: 0.062300 ms MarkObjects: 1.680100 ms  DeleteObjects: 0.090800 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

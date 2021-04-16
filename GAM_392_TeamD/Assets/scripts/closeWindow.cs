@@ -15,7 +15,7 @@ public class closeWindow : MonoBehaviour
         if (GUI.Button(new Rect(10, 10, 50, 50), btnTexture))
             Debug.Log("close ad");
         
-        if (GUI.Button(new Rect(10, 10, 50, 50), "X"))
+        if (GUI.Button(new Rect(10, 70, 50, 30), "X"))
             Debug.Log("close ad");
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
             reduceProgressBar();
