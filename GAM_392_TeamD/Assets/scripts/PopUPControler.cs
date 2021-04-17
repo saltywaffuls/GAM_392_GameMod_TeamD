@@ -11,6 +11,7 @@ public class PopUPControler : MonoBehaviour
     public GameObject [] ad;
     public GameObject Pbar;
     public float fillPbar;
+    public float reducePbar;
 
 
 
@@ -34,7 +35,7 @@ public class PopUPControler : MonoBehaviour
 
         if (adsON)
         {
-            Debug.Log("random 1");
+            Debug.Log("random");
             randomAdpoint = Random.Range(0, adPoints.Length);
             RandomAd = Random.Range(0, ad.Length);
             Instantiate(ad[RandomAd], adPoints[randomAdpoint].position, Quaternion.identity);
@@ -42,7 +43,13 @@ public class PopUPControler : MonoBehaviour
         }
         
     }
-   
+
     
-   
+
+    public void reduceProgressBar()
+    {
+        Pbar.GetComponent<ProgressBar>().IncrementDeProgress(reducePbar);
+    }
+
+
 }

@@ -5,21 +5,16 @@ using UnityEngine;
 public class closeWindow : MonoBehaviour
 {
 
-    public Texture btnTexture;
+    
     public GameObject Pbar;
     public float UnfillPbar;
 
-    
-    void OnGUI()
+
+    public void CloseAd()
     {
-        if (GUI.Button(new Rect(10, 10, 50, 50), btnTexture))
-            Debug.Log("close ad");
-        
-        if (GUI.Button(new Rect(10, 70, 50, 30), "X"))
-            Debug.Log("close ad");
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            reduceProgressBar();
+        gameObject.SetActive(false);
     }
+
 
     
 
