@@ -11,7 +11,7 @@ public class PopUPControler : MonoBehaviour
     public GameObject [] ad;
     public GameObject Pbar;
     public float fillPbar;
-    public float reducePbar;
+    
 
 
 
@@ -46,10 +46,7 @@ public class PopUPControler : MonoBehaviour
 
     
 
-    public void reduceProgressBar()
-    {
-        Pbar.GetComponent<ProgressBar>().IncrementDeProgress(reducePbar);
-    }
+    
 
 
 }
