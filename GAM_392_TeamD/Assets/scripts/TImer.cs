@@ -10,6 +10,7 @@ public class TImer : MonoBehaviour
     public float addTime = 1;
     public float StartTime = 15f;
     public GameObject victoryScreen;
+   // GameObject ads;
 
     [SerializeField] Text timerText;
 
@@ -18,6 +19,7 @@ public class TImer : MonoBehaviour
     {
         Currenttime = StartTime;
         victoryScreen.SetActive(false);
+       // ads = GameObject.Find("AD");
     }
 
     // Update is called once per frame
@@ -31,6 +33,8 @@ public class TImer : MonoBehaviour
         {
             victoryScreen.SetActive(true);
         }
+
+        
 
     }
 
