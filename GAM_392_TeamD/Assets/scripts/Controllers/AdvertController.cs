@@ -59,8 +59,8 @@ public class AdvertController : MonoBehaviour
         float y_max = selectedSprite.rect.height + 11f;
 
         //Generate random coordinates
-        float x_pos = UnityEngine.Random.Range(0, 480 - x_max);
-        float y_pos = UnityEngine.Random.Range(0, -270 + y_max);
+        float x_pos = Mathf.Round(UnityEngine.Random.Range(0, 480 - x_max));
+        float y_pos = Mathf.Round(UnityEngine.Random.Range(-270 + y_max, 0));
 
         //If location is given, set the coords to that
         if (killMe == true)
