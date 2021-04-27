@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -34,7 +35,25 @@ public class CreateWindow : MonoBehaviour
         window_sprite.size = new Vector2(x_size, y_size);
         #endregion
 
-        #region Set X Button Position
+        #region Set Button UI size (Window Title Section)
+        GameObject canvasTitle = window.transform.GetChild(0).gameObject;
+        canvasTitle.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
+        canvasTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2((x_size - 13.0f) * 0.5f, -4.0f);
+
+        GameObject canvasTitleButton = canvasTitle.transform.GetChild(0).gameObject;
+        canvasTitleButton.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
+        #endregion
+
+        #region Set Button UI size (Window Ad Section)
+        GameObject canvasAd = window.transform.GetChild(1).gameObject;
+        canvasAd.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size, y_size - 8.0f, 0.0f);
+        canvasAd.GetComponent<RectTransform>().anchoredPosition = new Vector2(x_size * 0.5f, (y_size + 8.0f) * -0.5f);
+
+        GameObject canvasAdButton = canvasAd.transform.GetChild(0).gameObject;
+        canvasAdButton.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size, y_size - 8.0f, 0.0f);
+        #endregion
+
+        #region Set Button UI Position (Window X Section)
         //Grab child (button)
         GameObject x_button = gameObject.transform.GetChild(1).gameObject;
         

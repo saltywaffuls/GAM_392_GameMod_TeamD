@@ -25,6 +25,7 @@ public class AdvertController : MonoBehaviour
     void Start()
     {
         time = UnityEngine.Random.Range(adMinTime, adMaxTime);
+        //DisableController();
     }
 
     // Update is called once per frame
@@ -77,7 +78,7 @@ public class AdvertController : MonoBehaviour
         //Create new advertisement
         GameObject newAdvertisement = Instantiate(advert, new Vector3(x_pos, y_pos, z_pos), Quaternion.identity);
         newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedSprite;
-        newAdvertisement.GetComponentInChildren<WindowInteraction>().controllerObject = gameObject;
+        newAdvertisement.GetComponentInChildren<ButtonInteraction>().controllerObject = gameObject;
 
        //Add advertisement to list
         advertisements.Add(newAdvertisement);

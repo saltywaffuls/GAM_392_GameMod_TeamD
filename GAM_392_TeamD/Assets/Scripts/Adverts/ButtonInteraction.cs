@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public class WindowInteraction : MonoBehaviour
+public class ButtonInteraction : MonoBehaviour
 {
     private SpriteRenderer spriteRender;
     public GameObject controllerObject;
