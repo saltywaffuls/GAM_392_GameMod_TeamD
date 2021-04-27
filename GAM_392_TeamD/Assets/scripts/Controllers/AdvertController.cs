@@ -79,8 +79,9 @@ public class AdvertController : MonoBehaviour
         GameObject newAdvertisement = Instantiate(advert, new Vector3(x_pos, y_pos, z_pos), Quaternion.identity);
         newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedSprite;
         newAdvertisement.GetComponentInChildren<ButtonInteraction>().controllerObject = gameObject;
+        newAdvertisement.GetComponentInChildren<DragWindow>().controllerObject = gameObject;
 
-       //Add advertisement to list
+        //Add advertisement to list
         advertisements.Add(newAdvertisement);
         #endregion
     }
@@ -100,5 +101,18 @@ public class AdvertController : MonoBehaviour
             advertisements[i].transform.position = new Vector3(advertisements[i].transform.position.x, advertisements[i].transform.position.y, advertisements[i].transform.position.z + 0.5f);
         }
         advertisements.Remove(destroyedObject);
+    }
+
+    public void UpdateOrder(GameObject reorderedObject)
+    {
+        int index = advertisements.IndexOf(reorderedObject) + 1;
+        //Decreases Z value of all higher-level ads (to never get too close to the camera)
+        for (int i = index; i < advertisements.Count; i++)
+        {
+            advertisements[i].transform.position = new Vector3(advertisements[i].transform.position.x, advertisements[i].transform.position.y, advertisements[i].transform.position.z + 0.5f);
+        }
+        advertisements.Remove(reorderedObject);
+        reorderedObject.transform.position = new Vector3(reorderedObject.transform.position.x, reorderedObject.transform.position.y, 495.0f - ((float)advertisements.Count * 0.5f));
+        advertisements.Add(reorderedObject);
     }
 }

@@ -7,15 +7,16 @@ using UnityEngine;
 
 public class DragWindow : MonoBehaviour
 {
-    public GameObject window;
-
     private Vector3 prevMousePos;
     private Vector3 prevLocation;
+
+    public GameObject controllerObject;
 
     public void BeginDrag()
     {
         prevMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         prevLocation = gameObject.transform.position;
+        //UpdateOrder();
     }
 
     public void Drag(SpriteRenderer spriteRender)
@@ -37,5 +38,10 @@ public class DragWindow : MonoBehaviour
 
         //Update the positon
         gameObject.transform.position = new Vector3(x_pos, y_pos, deltaPos.z);
+    }
+
+    private void UpdateOrder()
+    {
+        controllerObject.GetComponent<AdvertController>().UpdateOrder(gameObject);
     }
 }
