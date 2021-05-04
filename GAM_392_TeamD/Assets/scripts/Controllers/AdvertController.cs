@@ -8,7 +8,16 @@ public class AdvertController : MonoBehaviour
 {
     //Prefab and possible ads
     public GameObject advert;
-    public Sprite[] sprites;
+    public TaskManager taskManager;
+
+    [System.Serializable]
+    public struct Adverts
+    {
+        [SerializeField] public string Text;
+        [SerializeField] public Sprite Image;
+        [SerializeField] public int Weight;
+    }
+    public Adverts[] AdvertisementList;
 
     //Timer control
     public float adMinTime;
@@ -46,17 +55,17 @@ public class AdvertController : MonoBehaviour
     {
         #region Ad Preparation
         //Select random sprite from list
-        Sprite selectedSprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
+        Adverts selectedAdvert = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length - 1)];
 
         //If function is given, set sprite to given
         if(sprite != null)
         {
-            selectedSprite = sprite;
+            selectedAdvert.Image = sprite;
         }
  
         //Get pixel size of selected sprite
-        float x_max = selectedSprite.rect.width + 2f;
-        float y_max = selectedSprite.rect.height + 11f;
+        float x_max = selectedAdvert.Image.rect.width + 2f;
+        float y_max = selectedAdvert.Image.rect.height + 11f;
 
         //Generate random coordinates
         float x_pos = Mathf.Round(UnityEngine.Random.Range(0, 480 - x_max));
@@ -77,7 +86,10 @@ public class AdvertController : MonoBehaviour
         #region Create Ad
         //Create new advertisement
         GameObject newAdvertisement = Instantiate(advert, new Vector3(x_pos, y_pos, z_pos), Quaternion.identity);
-        newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedSprite;
+        newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedAdvert.Image;
+        newAdvertisement.GetComponent<CreateWindow>().displayText = selectedAdvert.Text;
+        newAdvertisement.GetComponent<CreateWindow>().weight = selectedAdvert.Weight;
+        newAdvertisement.GetComponent<CreateWindow>().taskManager = taskManager;
         newAdvertisement.GetComponentInChildren<ButtonInteraction>().controllerObject = gameObject;
         newAdvertisement.GetComponentInChildren<DragWindow>().controllerObject = gameObject;
 

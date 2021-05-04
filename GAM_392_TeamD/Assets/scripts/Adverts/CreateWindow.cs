@@ -8,7 +8,10 @@ using UnityEngine;
 
 public class CreateWindow : MonoBehaviour
 {
+    public TaskManager taskManager;
     public Sprite displaySprite;
+    public string displayText;
+    public int weight;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +20,10 @@ public class CreateWindow : MonoBehaviour
         //Grab child (advertisement)
         GameObject advert = gameObject.transform.GetChild(2).gameObject;
         SpriteRenderer advertRender = advert.GetComponent<SpriteRenderer>();
-        
+
+        //Increase impact on CPU
+        taskManager.ModifyCpu(weight);
+
         //Set sprite
         advertRender.sprite = displaySprite;
 
@@ -44,6 +50,10 @@ public class CreateWindow : MonoBehaviour
         //Modify the button of the title bar
         GameObject canvasTitleButton = canvasTitle.transform.GetChild(0).gameObject;
         canvasTitleButton.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
+        
+        GameObject canvasTitleText = canvasTitleButton.transform.GetChild(0).gameObject;
+        canvasTitleText.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 10.0f, 0.0f);
+        canvasTitleText.GetComponent<UnityEngine.UI.Text>().text = displayText;
         #endregion
 
         #region Set Button UI size (Window Ad Section)
@@ -64,5 +74,11 @@ public class CreateWindow : MonoBehaviour
         //Update position of button to end of window
         x_button.transform.position = window.transform.position + new Vector3(x_size - 13.0f, 0.0f, -0.1f);
         #endregion
+    }
+
+    public void UpdateTaskManager()
+    {
+        taskManager.ModifyCpu(-weight);
+        UnityEngine.Debug.Log("bruh");
     }
 }

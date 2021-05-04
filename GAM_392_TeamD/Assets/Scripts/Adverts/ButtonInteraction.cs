@@ -7,6 +7,7 @@ public class ButtonInteraction : MonoBehaviour
 {
     private SpriteRenderer spriteRender;
     public GameObject controllerObject;
+    public CreateWindow window;
 
     //Grab the sprite renderer (to change later)
     void Start()
@@ -25,5 +26,6 @@ public class ButtonInteraction : MonoBehaviour
     {
         controllerObject.GetComponent<AdvertController>().RemoveObject(transform.parent.gameObject);
         Destroy(transform.parent.gameObject);
+        window.UpdateTaskManager();
     }
 }
