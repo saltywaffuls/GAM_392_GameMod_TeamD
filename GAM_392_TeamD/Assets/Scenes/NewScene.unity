@@ -2453,7 +2453,7 @@ SpriteRenderer:
   m_Size: {x: 0.98, y: 0.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1371024195
@@ -2977,7 +2977,7 @@ Transform:
   m_Children:
   - {fileID: 242243994}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885774633
 MonoBehaviour:
@@ -3310,7 +3310,7 @@ Transform:
   - {fileID: 1363540330}
   - {fileID: 1937705317}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2127251381
 MonoBehaviour:
@@ -3497,7 +3497,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2271768851134108682, guid: 59937f18f7e3a4f49b2db681a2ced4f9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2271768851134108682, guid: 59937f18f7e3a4f49b2db681a2ced4f9, type: 3}
       propertyPath: m_LocalPosition.x
