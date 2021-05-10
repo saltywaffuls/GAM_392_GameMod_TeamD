@@ -85,7 +85,6 @@ public class TaskManager : MonoBehaviour
                 {
                     cpuSprites[i].sprite = indicatorLevels[1];
                 }
-                UnityEngine.Debug.Log(indicatorLevels[1]);
             }
         }
         if(currentCpu / maxCpu >= 1)
