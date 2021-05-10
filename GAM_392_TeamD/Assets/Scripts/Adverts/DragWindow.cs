@@ -16,7 +16,7 @@ public class DragWindow : MonoBehaviour
     {
         prevMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         prevLocation = gameObject.transform.position;
-        //UpdateOrder();
+        UpdateOrder();
     }
 
     public void Drag(SpriteRenderer spriteRender)
@@ -38,6 +38,7 @@ public class DragWindow : MonoBehaviour
 
         //Update the positon
         gameObject.transform.position = new Vector3(x_pos, y_pos, deltaPos.z);
+        UpdateOrder();
     }
 
     private void UpdateOrder()

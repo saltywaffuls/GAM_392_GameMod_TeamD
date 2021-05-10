@@ -10,6 +10,8 @@ public class AdvertController : MonoBehaviour
     public GameObject advert;
     public TaskManager taskManager;
 
+    public GameObject[] extraWindows;
+
     [System.Serializable]
     public struct Adverts
     {
@@ -35,6 +37,11 @@ public class AdvertController : MonoBehaviour
     {
         time = UnityEngine.Random.Range(adMinTime, adMaxTime);
         //DisableController();
+        for(int i = 0; i < extraWindows.Length; i++)
+        {
+            extraWindows[i].GetComponentInChildren<DragWindow>().controllerObject = gameObject;
+            advertisements.Add(extraWindows[i]);
+        }    
     }
 
     // Update is called once per frame
