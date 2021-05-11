@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using UnityEngine;
 
 public class AdvertController : MonoBehaviour
@@ -9,6 +10,7 @@ public class AdvertController : MonoBehaviour
     //Prefab and possible ads
     public GameObject advert;
     public TaskManager taskManager;
+    public Installer installer;
 
     public GameObject[] extraWindows;
 
@@ -29,6 +31,11 @@ public class AdvertController : MonoBehaviour
     private float time;
     private float second = 1.0f;
 
+    private float time_close = 0.5f;
+    private float time_incr = 1.0f;
+
+    bool gameEnd = false;
+
     //Stores game objects
     private List<GameObject> advertisements = new List<GameObject>();
 
@@ -40,6 +47,7 @@ public class AdvertController : MonoBehaviour
         for(int i = 0; i < extraWindows.Length; i++)
         {
             extraWindows[i].GetComponentInChildren<DragWindow>().controllerObject = gameObject;
+            extraWindows[i].transform.position = new Vector3(extraWindows[i].transform.position.x, extraWindows[i].transform.position.y, 495.0f - ((float)advertisements.Count * 0.5f));
             advertisements.Add(extraWindows[i]);
         }    
     }
@@ -47,14 +55,35 @@ public class AdvertController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Run through timer
-        if (time <= 0.0f)
+        if (!gameEnd)
         {
-            //Reset time and crate ad
-            time = UnityEngine.Random.Range(adMinTime, adMaxTime);
-            CreateAdvert();
+            //Run through timer
+            if (time <= 0.0f)
+            {
+                //Reset time and crate ad
+                time = UnityEngine.Random.Range(adMinTime, adMaxTime);
+                CreateAdvert();
+            }
+            time -= second * Time.deltaTime;
+            installer.UpdateInstaller();
         }
-        time -= second * Time.deltaTime;
+        else
+        {
+            if (advertisements.Count > 0)
+            {
+                time -= second * Time.deltaTime;
+                if (time <= 0.0f)
+                {
+                    advertisements[advertisements.Count - 1].GetComponentInChildren<ButtonInteraction>().CommitSuicide();
+                    time_incr++;
+                    time = time_close / time_incr;
+                }
+            }
+            else
+            {
+                DisableController();
+            }
+        }
     }
     
     #nullable enable
@@ -76,7 +105,7 @@ public class AdvertController : MonoBehaviour
 
         //Generate random coordinates
         float x_pos = Mathf.Round(UnityEngine.Random.Range(0, 480 - x_max));
-        float y_pos = Mathf.Round(UnityEngine.Random.Range(-270 + y_max, 0));
+        float y_pos = Mathf.Round(UnityEngine.Random.Range(-270 + y_max + 12, 0));
 
         //If location is given, set the coords to that
         if (killMe == true)
@@ -133,5 +162,17 @@ public class AdvertController : MonoBehaviour
         advertisements.Remove(reorderedObject);
         reorderedObject.transform.position = new Vector3(reorderedObject.transform.position.x, reorderedObject.transform.position.y, 495.0f - ((float)advertisements.Count * 0.5f));
         advertisements.Add(reorderedObject);
+    }
+
+    public void GameWin()
+    {
+        gameEnd = true;
+        time = time_close;
+
+        for (int i = 0; i < extraWindows.Length; i++)
+        {
+            advertisements.Remove(extraWindows[i]);
+        }
+
     }
 }

@@ -7,8 +7,10 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public GameObject controller;
+    public Installer installer;
     public GameOver gameOver;
-    
+    public GameObject glitchController;
+
     public float maxCpu;
     public float maxRam;
 
@@ -53,12 +55,6 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //ModifyCpu(10.0f * Time.deltaTime);
-        //ModifyRam(10.0f * Time.deltaTime);
-    }
-
     private void UpdateTabs(bool enabled, GameObject tabs)
     {
         GameObject text = tabs.transform.GetChild(1).gameObject;
@@ -87,10 +83,20 @@ public class TaskManager : MonoBehaviour
                 }
             }
         }
-        if(currentCpu / maxCpu >= 1)
+        if ((currentCpu / maxCpu) > 0.8f)
         {
-            CrashGame();
+            glitchController.SetActive(true);
+            if (currentCpu / maxCpu >= 1)
+            {
+                CrashGame();
+                glitchController.SetActive(false);
+            }
         }
+        else
+        {
+            glitchController.SetActive(false);
+        }
+        installer.UpdateUsage(currentCpu / maxCpu);
     }
 
     public void ModifyRam(float deltaRam)
@@ -110,9 +116,18 @@ public class TaskManager : MonoBehaviour
                 }
             }
         }
-        if (currentRam / maxRam >= 1)
+        if ((currentRam / maxRam) > 0.8f)
         {
-            CrashGame();
+            glitchController.SetActive(true);
+            if (currentRam / maxRam >= 1)
+            {
+                CrashGame();
+                glitchController.SetActive(false);
+            }
+        }
+        else
+        {
+            glitchController.SetActive(false);
         }
     }
 

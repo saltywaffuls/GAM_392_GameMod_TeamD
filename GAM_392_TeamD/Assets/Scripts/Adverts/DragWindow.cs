@@ -11,11 +11,13 @@ public class DragWindow : MonoBehaviour
     private Vector3 prevLocation;
 
     public GameObject controllerObject;
+    AdvertController controller;
 
     public void BeginDrag()
     {
         prevMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         prevLocation = gameObject.transform.position;
+        controller = controllerObject.GetComponent<AdvertController>();
         UpdateOrder();
     }
 
@@ -33,7 +35,7 @@ public class DragWindow : MonoBehaviour
         float y_max = spriteRender.sprite.rect.height + 11f;
 
         float x_pos = Mathf.Round(Mathf.Clamp(deltaPos.x, 0.0f, 480.0f - x_max));
-        float y_pos = Mathf.Round(Mathf.Clamp(deltaPos.y, -270.0f + y_max, 0.0f));
+        float y_pos = Mathf.Round(Mathf.Clamp(deltaPos.y, -270.0f + y_max + 12, 0.0f));
         #endregion
 
         //Update the positon
@@ -43,6 +45,6 @@ public class DragWindow : MonoBehaviour
 
     private void UpdateOrder()
     {
-        controllerObject.GetComponent<AdvertController>().UpdateOrder(gameObject);
+        controller.UpdateOrder(gameObject);
     }
 }

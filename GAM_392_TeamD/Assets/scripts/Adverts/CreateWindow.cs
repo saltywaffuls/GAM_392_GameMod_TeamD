@@ -79,6 +79,5 @@ public class CreateWindow : MonoBehaviour
     public void UpdateTaskManager()
     {
         taskManager.ModifyCpu(-weight);
-        UnityEngine.Debug.Log("bruh");
     }
 }
