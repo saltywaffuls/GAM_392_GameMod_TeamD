@@ -46,6 +46,7 @@ public class Installer : MonoBehaviour
         text_estimate = gameObject.transform.GetChild(2).gameObject.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Text>();
 
         UpdateDisplay();
+        
     }
 
     // Update is called once per frame
@@ -58,6 +59,7 @@ public class Installer : MonoBehaviour
         else
         {
             gameController.GameWin();
+            FindObjectOfType<AudioManager>().Play("InstallComplete");
         }
     }
 
@@ -98,6 +100,7 @@ public class Installer : MonoBehaviour
             }
 
             text_estimate.text = "ETA: " + (Mathf.Floor(display_time / 60)) + ":" + LeadingZero(Mathf.Round(display_time % 60)) + " seconds";
+
         }
         else
         {
@@ -108,10 +111,12 @@ public class Installer : MonoBehaviour
     public void UpdateUsage(float usage)
     {
         performance = usage;
+
     }
     
     string LeadingZero(float n)
     {
         return n.ToString().PadLeft(2, '0');
+
     }
 }

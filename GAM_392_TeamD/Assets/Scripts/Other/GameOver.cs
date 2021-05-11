@@ -19,7 +19,9 @@ public class GameOver : MonoBehaviour
 
     public void Enable(bool status)
     {
+        FindObjectOfType<AudioManager>().Play("GameOver");
         gameObject.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = status;
         gameStatus = status;
+        
     }
 }
