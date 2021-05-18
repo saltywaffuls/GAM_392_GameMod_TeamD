@@ -70,6 +70,7 @@ public class Installer : MonoBehaviour
         {
             time_left = time;
             round_current++;
+            FindObjectOfType<AudioManager>().Play("InstallComplete");
         }
         time_left -= (second * (1 - performance)) * Time.deltaTime;
         UpdateDisplay();
