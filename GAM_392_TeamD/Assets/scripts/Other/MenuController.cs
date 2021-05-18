@@ -20,4 +20,10 @@ public class MenuController : MonoBehaviour
         install.SetActive(true);
 
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Quit the game");
+    }
 }
