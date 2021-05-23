@@ -20,6 +20,7 @@ public class AdvertController : MonoBehaviour
         [SerializeField] public string Text;
         [SerializeField] public Sprite Image;
         [SerializeField] public int Weight;
+        [SerializeField] public bool Borderless;
     }
     public Adverts[] AdvertisementList;
 
@@ -125,6 +126,7 @@ public class AdvertController : MonoBehaviour
         newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedAdvert.Image;
         newAdvertisement.GetComponent<CreateWindow>().displayText = selectedAdvert.Text;
         newAdvertisement.GetComponent<CreateWindow>().weight = selectedAdvert.Weight;
+        newAdvertisement.GetComponent<CreateWindow>().isBorderless = selectedAdvert.Borderless;
         newAdvertisement.GetComponent<CreateWindow>().taskManager = taskManager;
         newAdvertisement.GetComponentInChildren<ButtonInteraction>().controllerObject = gameObject;
         newAdvertisement.GetComponentInChildren<DragWindow>().controllerObject = gameObject;

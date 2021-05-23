@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ADV.
+  m_Text: 
 --- !u!1 &4589721769617930083
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +797,7 @@ MonoBehaviour:
   displaySprite: {fileID: 0}
   displayText: 
   weight: 0
+  isBorderless: 0
 --- !u!114 &328973967469142971
 MonoBehaviour:
   m_ObjectHideFlags: 0

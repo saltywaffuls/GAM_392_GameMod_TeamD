@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -12,6 +13,9 @@ public class CreateWindow : MonoBehaviour
     public Sprite displaySprite;
     public string displayText;
     public int weight;
+    public bool isBorderless;
+
+    float padding = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,22 +42,35 @@ public class CreateWindow : MonoBehaviour
         
         //Set 9-slice size (in draw mode) to increase size
         SpriteRenderer window_sprite = window.GetComponent<SpriteRenderer>();
+
         window_sprite.size = new Vector2(x_size, y_size);
         #endregion
 
         #region Set Button UI size (Window Title Section)
-        //Modify the canvas of the title bar
-        GameObject canvasTitle = window.transform.GetChild(0).gameObject;
-        canvasTitle.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
-        canvasTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2((x_size - 13.0f) * 0.5f, -4.0f);
 
-        //Modify the button of the title bar
-        GameObject canvasTitleButton = canvasTitle.transform.GetChild(0).gameObject;
-        canvasTitleButton.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
-        
-        GameObject canvasTitleText = canvasTitleButton.transform.GetChild(0).gameObject;
-        canvasTitleText.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 10.0f, 0.0f);
-        canvasTitleText.GetComponent<UnityEngine.UI.Text>().text = displayText;
+        if (!isBorderless)
+        {
+
+            //Modify the canvas of the title bar
+            GameObject canvasTitle = window.transform.GetChild(0).gameObject;
+            canvasTitle.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
+            canvasTitle.GetComponent<RectTransform>().anchoredPosition = new Vector2((x_size - 13.0f) * 0.5f, -4.0f);
+
+            //Modify the button of the title bar
+            GameObject canvasTitleButton = canvasTitle.transform.GetChild(0).gameObject;
+            canvasTitleButton.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 8.0f, 0.0f);
+
+            GameObject canvasTitleText = canvasTitleButton.transform.GetChild(0).gameObject;
+            canvasTitleText.GetComponent<RectTransform>().sizeDelta = new Vector3(x_size - 13.0f, 10.0f, 0.0f);
+            canvasTitleText.GetComponent<UnityEngine.UI.Text>().text = displayText;
+
+        }
+        else
+        {
+            window_sprite.enabled = false;
+            Destroy(window.transform.GetChild(0).gameObject);
+        }
+
         #endregion
 
         #region Set Button UI size (Window Ad Section)
@@ -73,6 +90,20 @@ public class CreateWindow : MonoBehaviour
         
         //Update position of button to end of window
         x_button.transform.position = window.transform.position + new Vector3(x_size - 13.0f, 0.0f, -0.1f);
+
+        if(isBorderless)
+        {
+            float directionX = Mathf.Round(UnityEngine.Random.Range(0.0f, 1.0f));
+            float directionY = Mathf.Round(UnityEngine.Random.Range(0.0f, 1.0f));
+
+            float borderXPosition = (x_size - 2.0f - 13.0f) * directionX;
+            float borderYPosition = -(y_size - 3.0f - 16.0f) * directionY;
+
+            borderXPosition -= ((directionX * 2.0f) - 1.0f) * padding;
+            borderYPosition += ((directionY * 2.0f) - 1.0f) * padding;
+
+            x_button.transform.position = advert.transform.position + new Vector3(borderXPosition, borderYPosition, -0.3f);
+        }
         #endregion
     }
 
