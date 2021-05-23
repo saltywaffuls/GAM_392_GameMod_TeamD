@@ -26,6 +26,7 @@ public class ButtonInteraction : MonoBehaviour
     {
         controllerObject.GetComponent<AdvertController>().RemoveObject(transform.parent.gameObject);
         Destroy(transform.parent.gameObject);
+        FindObjectOfType<AudioManager>().Play("CloseAd");
         window.UpdateTaskManager();
     }
 }

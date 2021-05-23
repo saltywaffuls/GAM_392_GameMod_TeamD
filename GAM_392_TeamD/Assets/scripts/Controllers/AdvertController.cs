@@ -91,7 +91,7 @@ public class AdvertController : MonoBehaviour
     {
         #region Ad Preparation
         //Select random sprite from list
-        Adverts selectedAdvert = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length - 1)];
+        Adverts selectedAdvert = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length)];
 
         //If function is given, set sprite to given
         if(sprite != null)
