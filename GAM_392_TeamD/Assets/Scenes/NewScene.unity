@@ -4658,6 +4658,11 @@ MonoBehaviour:
     Weight: 1
     Borderless: 0
     ChromeImage: {fileID: 21300000, guid: f936a37df8b6c8e49b8bda6df599090e, type: 3}
+  - Text: Adobe Creative Cloud Free!
+    Image: {fileID: 21300000, guid: 98aa29eb257dd1e418f4c3c36b60cfc6, type: 3}
+    Weight: 1
+    Borderless: 1
+    ChromeImage: {fileID: 0}
   adMinTime: 0.1
   adMaxTime: 1.5
   adIncrease: 0
