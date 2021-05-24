@@ -481,7 +481,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2395090264973033934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6341748216589993423}
+        m_TargetAssemblyTypeName: CreateWindow, Assembly-CSharp
+        m_MethodName: CreateChromeWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6341748216137970856
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +810,7 @@ MonoBehaviour:
   displayText: 
   weight: 0
   isBorderless: 0
+  chromeSprite: {fileID: 0}
 --- !u!114 &328973967469142971
 MonoBehaviour:
   m_ObjectHideFlags: 0

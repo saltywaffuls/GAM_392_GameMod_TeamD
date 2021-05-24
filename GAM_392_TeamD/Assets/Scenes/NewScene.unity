@@ -4627,30 +4627,37 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: 1eec62d08c65bf048a20385f1d14899b, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
   - Text: Error encountered!
     Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
   - Text: Congratulations! Click to claim your prize.
     Image: {fileID: 21300000, guid: 4ee748c277c62ce4eb110af713d7cf66, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 5dc266209d6b86a46a9a62c59666d722, type: 3}
   - Text: Hot singles in your area.
     Image: {fileID: 21300000, guid: 56349f58885fb9f4f897dc98b7ae7686, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 4bd699f12df6c0b4e8ab261ab738e94b, type: 3}
   - Text: Virus detected! Please take immediate action!
     Image: {fileID: 21300000, guid: f195115dc6e8c3a4a83daeabdf90fad0, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 687ceb41bc258cd449b5b0b0d657831d, type: 3}
   - Text: INVEST NOW! DON'T MISS OUT!!!
     Image: {fileID: 21300000, guid: 52da3953f4778c247986d2544961567c, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
   - Text: Don't Delay Play TODAY
     Image: {fileID: 21300000, guid: 193e5cbc12808b24c986780e4453f1d8, type: 3}
     Weight: 1
     Borderless: 0
+    ChromeImage: {fileID: 21300000, guid: f936a37df8b6c8e49b8bda6df599090e, type: 3}
   adMinTime: 0.1
   adMaxTime: 1.5
   adIncrease: 0

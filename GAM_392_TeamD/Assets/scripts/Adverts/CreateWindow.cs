@@ -9,11 +9,14 @@ using UnityEngine;
 
 public class CreateWindow : MonoBehaviour
 {
+    private AdvertController advertController;
     public TaskManager taskManager;
     public Sprite displaySprite;
     public string displayText;
     public int weight;
     public bool isBorderless;
+
+    public Sprite chromeSprite;
 
     float padding = 5.0f;
 
@@ -105,10 +108,21 @@ public class CreateWindow : MonoBehaviour
             x_button.transform.position = advert.transform.position + new Vector3(borderXPosition, borderYPosition, -0.3f);
         }
         #endregion
+    
+        advertController = FindObjectOfType<AdvertController>();
+
     }
 
     public void UpdateTaskManager()
     {
         taskManager.ModifyCpu(-weight);
+    }
+
+    public void CreateChromeWindow()
+    {
+        if(chromeSprite != null)
+        {
+            advertController.CreateAdvert(default(Vector2), chromeSprite, true);
+        }
     }
 }
