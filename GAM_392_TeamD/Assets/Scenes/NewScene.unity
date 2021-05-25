@@ -6395,6 +6395,12 @@ MonoBehaviour:
     pitch: 0.5
     loop: 0
     source: {fileID: 0}
+  - name: OpenChrome
+    clip: {fileID: 8300000, guid: 49cc7b3be57203148b8a3de100b36e98, type: 3}
+    volume: 5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1984665146
 Transform:
   m_ObjectHideFlags: 0
