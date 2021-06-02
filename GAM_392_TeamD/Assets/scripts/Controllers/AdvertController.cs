@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdvertController : MonoBehaviour
 {
@@ -46,12 +47,14 @@ public class AdvertController : MonoBehaviour
     {
         time = UnityEngine.Random.Range(adMinTime, adMaxTime);
         //DisableController();
+        /*
         for(int i = 0; i < extraWindows.Length; i++)
         {
             extraWindows[i].GetComponentInChildren<DragWindow>().controllerObject = gameObject;
             extraWindows[i].transform.position = new Vector3(extraWindows[i].transform.position.x, extraWindows[i].transform.position.y, 495.0f - ((float)advertisements.Count * 0.5f));
             advertisements.Add(extraWindows[i]);
-        }    
+        } 
+        */
     }
 
     // Update is called once per frame
@@ -64,7 +67,9 @@ public class AdvertController : MonoBehaviour
             {
                 //Reset time and crate ad
                 time = UnityEngine.Random.Range(adMinTime, adMaxTime);
-                CreateAdvert();
+                //Select random sprite from list
+                Adverts selAd = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length)];
+                CreateAdvert(default(Vector2), false, selAd.Image, selAd.Borderless, selAd.Text, selAd.Weight, selAd.ChromeImage);
             }
             time -= second * Time.deltaTime;
             installer.UpdateInstaller();
@@ -83,34 +88,28 @@ public class AdvertController : MonoBehaviour
             }
             else
             {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 DisableController();
             }
         }
     }
 
 #nullable enable
-    public void CreateAdvert(Vector2 location = default(Vector2), Sprite? sprite = null, bool? killMe = false)
+    public void CreateAdvert(Vector2 location, bool setLocation, Sprite sprite, bool borderless, String text, int weight, Sprite chrome)
     {
         #region Ad Preparation
         //Select random sprite from list
-        Adverts selectedAdvert = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length)];
-
-        //If function is given, set sprite to given
-        if (sprite != null)
-        {
-            selectedAdvert.Image = sprite;
-        }
 
         //Get pixel size of selected sprite
-        float x_max = selectedAdvert.Image.rect.width + 2f;
-        float y_max = selectedAdvert.Image.rect.height + 11f;
+        float x_max = sprite.rect.width + 2f;
+        float y_max = sprite.rect.height + 11f;
 
         //Generate random coordinates
-        float x_pos = Mathf.Round(UnityEngine.Random.Range(0, 480 - x_max));
+        float x_pos = Mathf.Round(UnityEngine.Random.Range(100, 480 - x_max));
         float y_pos = Mathf.Round(UnityEngine.Random.Range(-270 + y_max + 12, 0));
 
         //If location is given, set the coords to that
-        if (killMe == true)
+        if (setLocation == true)
         {
             x_pos = location.x;
             y_pos = location.y;
@@ -124,14 +123,14 @@ public class AdvertController : MonoBehaviour
         #region Create Ad
         //Create new advertisement
         GameObject newAdvertisement = Instantiate(advert, new Vector3(x_pos, y_pos, z_pos), Quaternion.identity);
-        newAdvertisement.GetComponent<CreateWindow>().displaySprite = selectedAdvert.Image;
-        newAdvertisement.GetComponent<CreateWindow>().displayText = selectedAdvert.Text;
-        newAdvertisement.GetComponent<CreateWindow>().weight = selectedAdvert.Weight;
+        newAdvertisement.GetComponent<CreateWindow>().displaySprite = sprite;
+        newAdvertisement.GetComponent<CreateWindow>().displayText = text;
+        newAdvertisement.GetComponent<CreateWindow>().weight = weight;
 
-        newAdvertisement.GetComponent<CreateWindow>().isBorderless = selectedAdvert.Borderless;
-        
-        newAdvertisement.GetComponent<CreateWindow>().chromeSprite = selectedAdvert.ChromeImage;
-        
+        newAdvertisement.GetComponent<CreateWindow>().isBorderless = borderless;
+
+        newAdvertisement.GetComponent<CreateWindow>().chromeSprite = chrome;
+
         newAdvertisement.GetComponent<CreateWindow>().taskManager = taskManager;
         newAdvertisement.GetComponentInChildren<ButtonInteraction>().controllerObject = gameObject;
         newAdvertisement.GetComponentInChildren<DragWindow>().controllerObject = gameObject;
@@ -180,6 +179,5 @@ public class AdvertController : MonoBehaviour
         {
             advertisements.Remove(extraWindows[i]);
         }
-
     }
 }

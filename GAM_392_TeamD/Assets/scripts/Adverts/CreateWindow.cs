@@ -122,7 +122,7 @@ public class CreateWindow : MonoBehaviour
     {
         if(chromeSprite != null)
         {
-            advertController.CreateAdvert(default(Vector2), chromeSprite, true);
+            advertController.CreateAdvert(new Vector2(100, 0), true, chromeSprite, false, displayText, 1, null);
             FindObjectOfType<AudioManager>().Play("OpenChrome");
         }
     }

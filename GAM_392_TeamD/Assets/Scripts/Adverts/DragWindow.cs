@@ -34,7 +34,7 @@ public class DragWindow : MonoBehaviour
         float x_max = spriteRender.sprite.rect.width + 2f;
         float y_max = spriteRender.sprite.rect.height + 11f;
 
-        float x_pos = Mathf.Round(Mathf.Clamp(deltaPos.x, 0.0f, 480.0f - x_max));
+        float x_pos = Mathf.Round(Mathf.Clamp(deltaPos.x, 100.0f, 480.0f - x_max));
         float y_pos = Mathf.Round(Mathf.Clamp(deltaPos.y, -270.0f + y_max + 12, 0.0f));
         #endregion
 
