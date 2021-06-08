@@ -86,7 +86,7 @@ public class AdvertController : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene("win");
                 DisableController();
             }
         }
