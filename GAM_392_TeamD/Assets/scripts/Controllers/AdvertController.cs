@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,24 +14,30 @@ public class AdvertController : MonoBehaviour
     public TaskManager taskManager;
     public Installer installer;
 
-    public GameObject[] extraWindows;
+    //public GameObject[] extraWindows;
 
     [System.Serializable]
-    public struct Adverts
+    public struct Rounds
     {
-        [SerializeField] public string Text;
-        [SerializeField] public Sprite Image;
-        [SerializeField] public int Weight;
-        [SerializeField] public bool Borderless;
-        [SerializeField] public Sprite ChromeImage;
+        public float adMinTime;
+        public float adMaxTime;
+
+        [System.Serializable]
+        public struct Adverts
+        {
+            public string Text;
+            public Sprite Image;
+            public int Weight;
+            public bool Borderless;
+            public Sprite ChromeImage;
+        }
+        public Adverts[] AdvertisementList;
     }
-    public Adverts[] AdvertisementList;
+    public Rounds[] RoundList;
+
+    private int round_current = 0;
 
     //Timer control
-    public float adMinTime;
-    public float adMaxTime;
-    public float adIncrease;
-
     private float time;
     private float second = 1.0f;
 
@@ -45,16 +52,7 @@ public class AdvertController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = UnityEngine.Random.Range(adMinTime, adMaxTime);
-        //DisableController();
-        /*
-        for(int i = 0; i < extraWindows.Length; i++)
-        {
-            extraWindows[i].GetComponentInChildren<DragWindow>().controllerObject = gameObject;
-            extraWindows[i].transform.position = new Vector3(extraWindows[i].transform.position.x, extraWindows[i].transform.position.y, 495.0f - ((float)advertisements.Count * 0.5f));
-            advertisements.Add(extraWindows[i]);
-        } 
-        */
+        time = UnityEngine.Random.Range(RoundList[round_current].adMinTime, RoundList[round_current].adMaxTime);
     }
 
     // Update is called once per frame
@@ -66,10 +64,10 @@ public class AdvertController : MonoBehaviour
             if (time <= 0.0f)
             {
                 //Reset time and crate ad
-                time = UnityEngine.Random.Range(adMinTime, adMaxTime);
+                time = UnityEngine.Random.Range(RoundList[round_current].adMinTime, RoundList[round_current].adMaxTime);
                 //Select random sprite from list
-                Adverts selAd = AdvertisementList[UnityEngine.Random.Range(0, AdvertisementList.Length)];
-                CreateAdvert(default(Vector2), false, selAd.Image, selAd.Borderless, selAd.Text, selAd.Weight, selAd.ChromeImage);
+                int selAd = UnityEngine.Random.Range(0, RoundList[round_current].AdvertisementList.Length);
+                CreateAdvert(default(Vector2), false, RoundList[round_current].AdvertisementList[selAd].Image, RoundList[round_current].AdvertisementList[selAd].Borderless, RoundList[round_current].AdvertisementList[selAd].Text, RoundList[round_current].AdvertisementList[selAd].Weight, RoundList[round_current].AdvertisementList[selAd].ChromeImage);
             }
             time -= second * Time.deltaTime;
             installer.UpdateInstaller();
@@ -174,10 +172,16 @@ public class AdvertController : MonoBehaviour
     {
         gameEnd = true;
         time = time_close;
-
+        /*
         for (int i = 0; i < extraWindows.Length; i++)
         {
             advertisements.Remove(extraWindows[i]);
         }
+        */
+    }
+
+    public void UpdateDifficulty(int round)
+    {
+        round_current = round;
     }
 }

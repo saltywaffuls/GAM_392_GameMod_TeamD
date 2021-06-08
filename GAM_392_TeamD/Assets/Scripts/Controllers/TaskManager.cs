@@ -83,7 +83,7 @@ public class TaskManager : MonoBehaviour
                 }
             }
         }
-        if ((currentCpu / maxCpu) > 0.8f)
+        if ((currentCpu / maxCpu) > 0.7f)
         {
             glitchController.SetActive(true);
             if (currentCpu / maxCpu >= 1)

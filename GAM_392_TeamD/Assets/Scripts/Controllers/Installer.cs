@@ -46,7 +46,8 @@ public class Installer : MonoBehaviour
         text_estimate = gameObject.transform.GetChild(2).gameObject.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Text>();
 
         UpdateDisplay();
-        
+        gameController.UpdateDifficulty(round_current);
+
     }
 
     // Update is called once per frame
@@ -70,6 +71,7 @@ public class Installer : MonoBehaviour
         {
             time_left = time;
             round_current++;
+            gameController.UpdateDifficulty(round_current);
             FindObjectOfType<AudioManager>().Play("InstallComplete");
         }
         time_left -= (second * (1 - performance)) * Time.deltaTime;

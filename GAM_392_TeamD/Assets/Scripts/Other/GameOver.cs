@@ -6,14 +6,17 @@ public class GameOver : MonoBehaviour
 {
     private bool gameStatus = false;
 
+    private float coolDown = 0.75f;
+
     void Update()
     {
         if(gameStatus)
         {
-            if (Input.anyKeyDown && !(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2)))
+            if (Input.anyKeyDown && coolDown <= 0.0f)
             {
                 Application.LoadLevel(Application.loadedLevel);
             }
+            coolDown -= 1.0f * Time.deltaTime;
         }
     }
 

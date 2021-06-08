@@ -31,7 +31,7 @@ public class Glitch : MonoBehaviour
             newGlitch.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
             Destroy(newGlitch, life);
             time = UnityEngine.Random.Range(freqMin, freqMax);
-            FindObjectOfType<AudioManager>().Play("Glitch");
+            //FindObjectOfType<AudioManager>().Play("glitch_" + UnityEngine.Random.Range(0, 2));
         }
 
         time -= 1.0f * Time.deltaTime;
