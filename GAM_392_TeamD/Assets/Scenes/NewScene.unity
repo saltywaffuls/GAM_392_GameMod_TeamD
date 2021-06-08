@@ -3713,90 +3713,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1179120077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1179120078}
-  - component: {fileID: 1179120079}
-  m_Layer: 0
-  m_Name: Difficulty Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1179120078
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179120077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1179120079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179120077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919ce3daf751f98418c215980d4ab48f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RoundList:
-  - adMinTimeStart: 1
-    adMinTimeEnd: 0.75
-    adMaxTimeStart: 2
-    adMaxTimeEnd: 1.75
-    AdvertisementList:
-    - Text: Error Encountered!
-      Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
-      Weight: 1
-      Borderless: 0
-      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
-  - adMinTimeStart: 0.75
-    adMinTimeEnd: 0.5
-    adMaxTimeStart: 1.75
-    adMaxTimeEnd: 1.5
-    AdvertisementList:
-    - Text: Error Encountered!
-      Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
-      Weight: 1
-      Borderless: 0
-      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
-  - adMinTimeStart: 0.5
-    adMinTimeEnd: 0.25
-    adMaxTimeStart: 1.5
-    adMaxTimeEnd: 1
-    AdvertisementList:
-    - Text: Error Encountered!
-      Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
-      Weight: 1
-      Borderless: 0
-      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
-  - adMinTimeStart: 0.25
-    adMinTimeEnd: 0.25
-    adMaxTimeStart: 1
-    adMaxTimeEnd: 0.75
-    AdvertisementList:
-    - Text: Error Encountered!
-      Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
-      Weight: 1
-      Borderless: 0
-      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
 --- !u!1 &1181417481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,13 +4159,28 @@ MonoBehaviour:
   advert: {fileID: 6341748216589993421, guid: 9f5d43c00b85aa4419a09bdb8c5524f3, type: 3}
   taskManager: {fileID: 2127251382}
   installer: {fileID: 24815242}
-  difficulty: {fileID: 1179120079}
   RoundList:
   - adMinTime: 1
     adMaxTime: 2
     AdvertisementList:
     - Text: Error detected!
       Image: {fileID: 21300000, guid: 0f2d8fe2802ab6049b5b021d4e3805ad, type: 3}
+      Weight: 1
+      Borderless: 0
+      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
+  - adMinTime: 0.75
+    adMaxTime: 1.75
+    AdvertisementList:
+    - Text: Error detected!
+      Image: {fileID: 21300000, guid: 52da3953f4778c247986d2544961567c, type: 3}
+      Weight: 1
+      Borderless: 0
+      ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
+  - adMinTime: 0.75
+    adMaxTime: 1.75
+    AdvertisementList:
+    - Text: Error detected!
+      Image: {fileID: 21300000, guid: 52da3953f4778c247986d2544961567c, type: 3}
       Weight: 1
       Borderless: 0
       ChromeImage: {fileID: 21300000, guid: 8be3a1985a4f96340beb9ccc50b395a3, type: 3}
