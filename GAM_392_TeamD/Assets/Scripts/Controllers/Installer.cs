@@ -46,7 +46,6 @@ public class Installer : MonoBehaviour
         text_estimate = gameObject.transform.GetChild(2).gameObject.transform.GetChild(2).gameObject.GetComponent<UnityEngine.UI.Text>();
 
         UpdateDisplay();
-        gameController.UpdateDifficulty(round_current);
 
     }
 
